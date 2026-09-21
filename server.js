@@ -1,13 +1,23 @@
-import { createServer } from 'node:http'
-import next from 'next'
+const { createServer } = require('node:http')
+const next = require('next')
 
 const port = Number(process.env.PORT || 3000)
 const hostname = process.env.HOST || '0.0.0.0'
-const app = next({ dev: false, hostname, port })
-const handle = app.getRequestHandler()
+const nextApp = next({ dev: false, hostname, port })
+const handle = nextApp.getRequestHandler()
 
-await app.prepare()
-
-createServer((request, response) => handle(request, response)).listen(port, hostname, () => {
-  console.log(`Care and Cure is running on http://${hostname}:${port}`)
-})
+nextApp
+  .prepare()
+  .then(() => {
+    createServer((request, response) => handle(request, response)).listen(
+      port,
+      hostname,
+      () => {
+        console.log(`Care and Cure is running on http://${hostname}:${port}`)
+      },
+    )
+  })
+  .catch((error) => {
+    console.error('Unable to start Care and Cure', error)
+    process.exitCode = 1
+  })
