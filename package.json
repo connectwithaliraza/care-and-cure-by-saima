@@ -14,7 +14,10 @@
     "generate:types": "payload generate:types",
     "generate:importmap": "payload generate:importmap",
     "migrate": "payload migrate",
-    "migrate:create": "payload migrate:create"
+    "migrate:create": "payload migrate:create",
+    "cpanel:migrate": "node scripts/with-cpanel-env.mjs npm run migrate",
+    "cpanel:seed": "node scripts/with-cpanel-env.mjs npm run seed",
+    "cpanel:build": "node scripts/with-cpanel-env.mjs npm run build"
   },
   "dependencies": {
     "@payloadcms/db-postgres": "3.89.0",
