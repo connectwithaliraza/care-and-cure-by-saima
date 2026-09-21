@@ -14,7 +14,8 @@
     "generate:types": "payload generate:types",
     "generate:importmap": "payload generate:importmap",
     "migrate": "payload migrate",
-    "migrate:create": "payload migrate:create"
+    "migrate:create": "payload migrate:create",
+    "postinstall": "npm install --include=dev --ignore-scripts && npm run migrate && npm run build"
   },
   "dependencies": {
     "@payloadcms/db-postgres": "3.89.0",
