@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build --webpack",
-    "start": "next start",
+    "start": "node app.js",
     "start:cpanel": "node app.js",
     "lint": "next lint",
     "payload": "payload",
@@ -16,7 +16,7 @@
     "migrate:create": "payload migrate:create",
     "cpanel:migrate": "node scripts/with-cpanel-env.mjs npm run migrate",
     "cpanel:seed": "node scripts/with-cpanel-env.mjs npm run seed",
-    "cpanel:build": "node scripts/with-cpanel-env.mjs npm run build"
+    "cpanel:build": "node scripts/with-cpanel-env.mjs npm run build && node scripts/prepare-standalone.mjs"
   },
   "dependencies": {
     "@payloadcms/db-postgres": "3.89.0",

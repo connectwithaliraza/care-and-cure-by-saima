@@ -1,4 +1,5 @@
 import type { CollectionConfig } from 'payload'
+import path from 'node:path'
 
 import { publicReadAuthenticatedWrite } from '@/access/publicReadAuthenticatedWrite'
 
@@ -9,7 +10,7 @@ export const Media: CollectionConfig = {
   access: publicReadAuthenticatedWrite,
   upload: {
     mimeTypes: ['image/*'],
-    staticDir: 'media',
+    staticDir: process.env.PAYLOAD_MEDIA_DIR || path.resolve(process.cwd(), 'media'),
   },
   fields: [
     { name: 'alt', type: 'text', required: true },
