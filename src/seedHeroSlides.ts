@@ -96,4 +96,9 @@ async function seedHeroSlides() {
   payload.logger.info('Five homepage hero slides updated successfully.')
 }
 
-await seedHeroSlides()
+seedHeroSlides()
+  .then(() => process.exit(0))
+  .catch((error) => {
+    console.error(error)
+    process.exit(1)
+  })
