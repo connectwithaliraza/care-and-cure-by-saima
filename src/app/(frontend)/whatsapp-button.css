@@ -1,0 +1,92 @@
+.whatsapp-float {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 40;
+  width: auto;
+  height: auto;
+  min-width: 205px;
+  min-height: 64px;
+  padding: 9px 17px 9px 13px;
+  display: flex;
+  place-items: initial;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  border: 0;
+  border-radius: 18px;
+  background: var(--whatsapp-button-color, #25d366);
+  color: var(--whatsapp-text-color, #fff);
+  font: inherit;
+  font-weight: 800;
+  box-shadow: 0 12px 30px rgba(17, 80, 45, 0.3);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.whatsapp-float:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 34px rgba(17, 80, 45, 0.36);
+}
+
+.whatsapp-float:focus-visible {
+  outline: 3px solid rgba(37, 211, 102, 0.3);
+  outline-offset: 3px;
+}
+
+.whatsapp-chat-icon {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 34px;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+}
+
+.whatsapp-chat-icon svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.whatsapp-button-labels {
+  display: grid;
+  text-align: left;
+  line-height: 1.15;
+}
+
+.whatsapp-button-labels > span:first-child {
+  font-size: 13px;
+  letter-spacing: 0.01em;
+}
+
+.whatsapp-button-labels > span:last-child {
+  margin-top: 3px;
+  font-family: "Noto Nastaliq Urdu", "Noto Sans Arabic", Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: right;
+}
+
+@media (max-width: 600px) {
+  .whatsapp-float {
+    right: 16px;
+    bottom: 16px;
+    width: auto;
+    height: auto;
+    min-width: 190px;
+    min-height: 60px;
+    padding: 8px 14px 8px 11px;
+  }
+
+  .whatsapp-chat-icon {
+    width: 32px;
+    height: 32px;
+    flex-basis: 32px;
+  }
+}

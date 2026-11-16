@@ -1338,6 +1338,9 @@ export interface WhatsappSetting {
   enabled: boolean;
   number: string;
   buttonLabel: string;
+  buttonLabelUrdu: string;
+  buttonColor: string;
+  buttonTextColor: string;
   prefilledMessage?: string | null;
   updatedAt?: string | null;
   createdAt?: string | null;
@@ -1529,6 +1532,9 @@ export interface WhatsappSettingsSelect<T extends boolean = true> {
   enabled?: T;
   number?: T;
   buttonLabel?: T;
+  buttonLabelUrdu?: T;
+  buttonColor?: T;
+  buttonTextColor?: T;
   prefilledMessage?: T;
   updatedAt?: T;
   createdAt?: T;

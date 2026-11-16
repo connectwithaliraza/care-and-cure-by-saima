@@ -1,11 +1,19 @@
 'use client'
 
-import { FormEvent, useState } from 'react'
+import { CSSProperties, FormEvent, useState } from 'react'
 import { savePatientInquiry } from '@/lib/savePatientInquiry'
 
-type Props = { clinicWhatsApp: string; buttonLabel: string; introMessage?: string | null; floating?: boolean }
+type Props = {
+  clinicWhatsApp: string
+  buttonLabel: string
+  buttonLabelUrdu?: string | null
+  buttonColor?: string | null
+  buttonTextColor?: string | null
+  introMessage?: string | null
+  floating?: boolean
+}
 
-export function GeneralInquiryForm({ clinicWhatsApp, buttonLabel, introMessage, floating = false }: Props) {
+export function GeneralInquiryForm({ clinicWhatsApp, buttonLabel, buttonLabelUrdu, buttonColor, buttonTextColor, introMessage, floating = false }: Props) {
   const [open, setOpen] = useState(false); const [submitting, setSubmitting] = useState(false); const [error, setError] = useState('')
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault(); setSubmitting(true); setError('')
@@ -17,8 +25,18 @@ export function GeneralInquiryForm({ clinicWhatsApp, buttonLabel, introMessage, 
       setOpen(false)
     } catch (caught) { setError(caught instanceof Error ? caught.message : 'Unable to save your request.') } finally { setSubmitting(false) }
   }
+  const floatingStyle = floating ? {
+    '--whatsapp-button-color': buttonColor || '#25D366',
+    '--whatsapp-text-color': buttonTextColor || '#FFFFFF',
+  } as CSSProperties : undefined
+
   return <div className={floating ? 'general-inquiry general-inquiry-floating' : 'general-inquiry'}>
-    <button className={floating ? 'whatsapp-float' : 'button'} type="button" onClick={() => setOpen((value) => !value)} aria-expanded={open} aria-label={buttonLabel}>{floating ? 'WA' : buttonLabel}</button>
+    <button className={floating ? 'whatsapp-float' : 'button'} style={floatingStyle} type="button" onClick={() => setOpen((value) => !value)} aria-expanded={open} aria-label={buttonLabel}>
+      {floating ? <>
+        <span className="whatsapp-chat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M20 11.4a8 8 0 0 1-8.3 8L7 21l1.4-3.9A8 8 0 1 1 20 11.4Z"/><path d="M8 10h8M8 14h5"/></svg></span>
+        <span className="whatsapp-button-labels"><span>{buttonLabel}</span>{buttonLabelUrdu ? <span lang="ur" dir="rtl">{buttonLabelUrdu}</span> : null}</span>
+      </> : buttonLabel}
+    </button>
     {open ? <form className={floating ? 'appointment-form floating-inquiry-panel' : 'appointment-form contact-inquiry-form'} onSubmit={submit}>
       <p className="appointment-form-title">Contact Care and Cure</p>
       <label>Your name<input name="name" required maxLength={100} autoComplete="name" placeholder="Enter your full name" /></label>

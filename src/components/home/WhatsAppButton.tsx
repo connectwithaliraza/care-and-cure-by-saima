@@ -8,5 +8,13 @@ export function getWhatsAppURL(settings: WhatsappSetting) {
 
 export function WhatsAppButton({ settings }: { settings: WhatsappSetting }) {
   if (!settings.enabled) return null
-  return <GeneralInquiryForm clinicWhatsApp={settings.number} buttonLabel={settings.buttonLabel} introMessage={settings.prefilledMessage} floating />
+  return <GeneralInquiryForm
+    clinicWhatsApp={settings.number}
+    buttonLabel={settings.buttonLabel}
+    buttonLabelUrdu={settings.buttonLabelUrdu}
+    buttonColor={settings.buttonColor}
+    buttonTextColor={settings.buttonTextColor}
+    introMessage={settings.prefilledMessage}
+    floating
+  />
 }

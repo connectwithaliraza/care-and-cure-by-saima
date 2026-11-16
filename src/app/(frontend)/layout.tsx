@@ -1,4 +1,5 @@
 import './styles.css'
+import './whatsapp-button.css'
 import type { Metadata } from 'next'
 import { getSiteData } from '@/lib/siteData'
 
