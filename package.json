@@ -16,6 +16,7 @@
     "migrate": "payload migrate",
     "migrate:create": "payload migrate:create",
     "cpanel:migrate": "node scripts/with-cpanel-env.mjs npm run migrate",
+    "cpanel:migrate:whatsapp": "node scripts/with-cpanel-env.mjs node scripts/migrate-whatsapp-settings.mjs",
     "cpanel:seed": "node scripts/with-cpanel-env.mjs npm run seed",
     "cpanel:seed:hero": "node scripts/with-cpanel-env.mjs npm run seed:hero",
     "cpanel:build": "node scripts/with-cpanel-env.mjs npm run build && node scripts/prepare-standalone.mjs"
