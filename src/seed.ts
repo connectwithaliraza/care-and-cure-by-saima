@@ -113,7 +113,6 @@ async function seed() {
         enabled: true,
         number: '+92 322 4853915',
         buttonLabel: 'Talk with Consultant',
-        buttonLabelUrdu: 'کنسلٹنٹ سے بات کریں',
         buttonColor: '#25D366',
         buttonTextColor: '#FFFFFF',
         prefilledMessage: 'Hello, I would like to book an appointment at Care and Cure.',

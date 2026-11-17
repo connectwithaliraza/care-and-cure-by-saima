@@ -11,7 +11,6 @@ export function WhatsAppButton({ settings }: { settings: WhatsappSetting }) {
   return <GeneralInquiryForm
     clinicWhatsApp={settings.number}
     buttonLabel={settings.buttonLabel}
-    buttonLabelUrdu={settings.buttonLabelUrdu}
     buttonColor={settings.buttonColor}
     buttonTextColor={settings.buttonTextColor}
     introMessage={settings.prefilledMessage}

@@ -65,14 +65,6 @@
   letter-spacing: 0.01em;
 }
 
-.whatsapp-button-labels > span:last-child {
-  margin-top: 3px;
-  font-family: "Noto Nastaliq Urdu", "Noto Sans Arabic", Arial, sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  text-align: right;
-}
-
 @media (max-width: 600px) {
   .whatsapp-float {
     right: 16px;

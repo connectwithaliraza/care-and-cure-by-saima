@@ -6,14 +6,13 @@ import { savePatientInquiry } from '@/lib/savePatientInquiry'
 type Props = {
   clinicWhatsApp: string
   buttonLabel: string
-  buttonLabelUrdu?: string | null
   buttonColor?: string | null
   buttonTextColor?: string | null
   introMessage?: string | null
   floating?: boolean
 }
 
-export function GeneralInquiryForm({ clinicWhatsApp, buttonLabel, buttonLabelUrdu, buttonColor, buttonTextColor, introMessage, floating = false }: Props) {
+export function GeneralInquiryForm({ clinicWhatsApp, buttonLabel, buttonColor, buttonTextColor, introMessage, floating = false }: Props) {
   const [open, setOpen] = useState(false); const [submitting, setSubmitting] = useState(false); const [error, setError] = useState('')
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault(); setSubmitting(true); setError('')
@@ -34,7 +33,7 @@ export function GeneralInquiryForm({ clinicWhatsApp, buttonLabel, buttonLabelUrd
     <button className={floating ? 'whatsapp-float' : 'button'} style={floatingStyle} type="button" onClick={() => setOpen((value) => !value)} aria-expanded={open} aria-label={buttonLabel}>
       {floating ? <>
         <span className="whatsapp-chat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M20 11.4a8 8 0 0 1-8.3 8L7 21l1.4-3.9A8 8 0 1 1 20 11.4Z"/><path d="M8 10h8M8 14h5"/></svg></span>
-        <span className="whatsapp-button-labels"><span>{buttonLabel}</span>{buttonLabelUrdu ? <span lang="ur" dir="rtl">{buttonLabelUrdu}</span> : null}</span>
+        <span className="whatsapp-button-labels"><span>{buttonLabel}</span></span>
       </> : buttonLabel}
     </button>
     {open ? <form className={floating ? 'appointment-form floating-inquiry-panel' : 'appointment-form contact-inquiry-form'} onSubmit={submit}>

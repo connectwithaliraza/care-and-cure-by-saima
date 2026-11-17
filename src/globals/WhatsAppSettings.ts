@@ -11,7 +11,6 @@ export const WhatsAppSettings: GlobalConfig = {
     { name: 'enabled', type: 'checkbox', required: true, defaultValue: true },
     { name: 'number', type: 'text', required: true, defaultValue: '+92 322 4853915' },
     { name: 'buttonLabel', label: 'Button text (English)', type: 'text', required: true, defaultValue: 'Talk with Consultant', maxLength: 40 },
-    { name: 'buttonLabelUrdu', label: 'Button text (Urdu)', type: 'text', required: true, defaultValue: 'کنسلٹنٹ سے بات کریں', maxLength: 60 },
     {
       name: 'buttonColor',
       label: 'Button background colour',
